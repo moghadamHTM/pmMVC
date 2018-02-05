@@ -15,7 +15,7 @@
   
    <!-- Home Page -->
    <definition name="index" extends="base-definition">  
-       <put-attribute name="title" value="Welcome to Home" />  
+       <put-attribute name="title" value="Welcome to Index" />  
        <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />  
    </definition>  
    
