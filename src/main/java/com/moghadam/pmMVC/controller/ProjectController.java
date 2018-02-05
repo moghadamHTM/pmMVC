@@ -16,12 +16,12 @@ public class ProjectController {
 	ProjectService projectSercive;
 	
 	@RequestMapping(method=RequestMethod.GET,value="/index")
-	public ModelAndView index() {
+	public String index() {
 		
 		ModelAndView mv=new ModelAndView("index");
 		Project p = projectSercive.findAll().iterator().next();
 		mv.addObject("project", p);
-		return mv;
+		return "index";
 		
 	}
 
