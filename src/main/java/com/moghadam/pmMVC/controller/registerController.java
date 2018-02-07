@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.init.UncategorizedScriptException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -34,6 +35,13 @@ public class registerController {
 	@RequestMapping(method=RequestMethod.POST,value="/register")
 	public ModelAndView registerUser(@ModelAttribute("user") User userModel, 
             BindingResult result, WebRequest request, Errors errors) {
+		
+		// behatar ast in kar dar laye controller anjam shavad
+		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+		String passwd = encoder.encode(userModel.getPasswd());
+		userModel.setPasswd(passwd);
+		
+		
 		
 		userService.save(userModel);
 		Map<String, Object> maps=new HashedMap();

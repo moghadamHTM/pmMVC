@@ -44,7 +44,7 @@
        <put-attribute name="body" value="/WEB-INF/jsp/activated.jsp" />  
    </definition> 
    
-      <definition name="login" extends="base-definition">  
+   <definition name="login" extends="base-definition">  
        <put-attribute name="title" value="Welcome to Pm Login" />  
        <put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />  
    </definition> 

@@ -9,13 +9,13 @@
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
     <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">صفحه اصلی</a>
+      <a href="${_ctx}/home" class="w3-button w3-block w3-black">صفحه اصلی</a>
     </div>
     <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block w3-black">ورود</a>
+      <a href="${_ctx}/login" class="w3-button w3-block w3-black">ورود</a>
     </div>
     <div class="w3-col s3">
-      <a href="#menu" class="w3-button w3-block w3-black">منوها</a>
+      <a href="${_ctx}/login" class="w3-button w3-block w3-black">منوها</a>
     </div>
     
   </div>

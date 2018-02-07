@@ -1,6 +1,12 @@
 package com.moghadam.pmMVC.service;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,5 +34,30 @@ public class UserService {
 	
 	public User findById(Long userId) {
 		return userDao.findOne(userId);
+	}
+	
+	
+	public User findByUsername(String username) {
+		
+		return userDao.findAll(new Usernamespec(username)).iterator().next();
+		
+	}
+	
+	public static class Usernamespec implements Specification<User> {
+
+		private String username;
+		
+		
+		public Usernamespec(String username) {
+			super();
+			this.username = username;
+		}
+
+
+		public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+			//cb.or(cb.equal(root.get("email"), this.email))
+			return cb.equal(root.get("username"), this.username);
+		}
+		
 	}
 }
